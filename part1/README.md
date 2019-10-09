@@ -60,7 +60,7 @@ gcloud pubsub subscriptions create test_sub \
 --project $GCP_PROJECT_ID
 ```
 
-Then run the following script to send dummy event to the topic:
+Then run the following command to send dummy event to the topic:
 
 ```sh
 gcloud pubsub topics publish $PS_TOPIC_ID \
@@ -145,7 +145,7 @@ FROM dummy_data
 WHERE
   event_name = "gps")
 
--- QUERY:
+-- QUERY comes after this:
 
 -- this query gives us each ended ride and their details
 SELECT
@@ -240,35 +240,7 @@ WITH dummy_data AS (
       ("0002", "123457", TIMESTAMP("2019-10-07 13:32:00.000 UTC"), "poweroff", 60.1780235, 24.9322142, 4, false)
     ]
   )
-),
-
--- Defines collection of ride start events from our data
-starts AS (SELECT
-  timestamp, device_id, ride_id rid, latitude lat, longitude lng, battery_percentage bttr
-FROM dummy_data
-WHERE
-  event_name = "poweron"),
-
--- Defines collection of ride end events from our data
-ends AS (SELECT
-  timestamp, device_id, ride_id rid, latitude lat, longitude lng, battery_percentage bttr
-FROM dummy_data
-WHERE
-  event_name = "poweroff"),
-
--- this query gives us each ended ride and their details
-SELECT
-  ANY_VALUE(starts.device_id) AS device,
-  starts.rid, MIN(starts.timestamp) AS start_time,
-  MAX(ends.timestamp) AS end_time,
-  ST_GeogPoint(ANY_VALUE(starts.lng), ANY_VALUE(starts.lat)) AS start_wkt,
-  ST_GeogPoint(ANY_VALUE(ends.lng), ANY_VALUE(ends.lat)) AS end_wkt,
-  TIMESTAMP_DIFF(MAX(ends.timestamp), MIN(starts.timestamp), SECOND) AS duration_secs,
-  (MAX(starts.bttr) - MIN(ends.bttr)) AS battery_usage_percent
-FROM starts,ends
-WHERE
-  ends.rid = starts.rid
-GROUP BY rid
+)
 
 SELECT
   FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", timestamp) as ts, event_name, device_id, ST_GeogPoint(longitude, latitude) AS wkt
@@ -276,7 +248,6 @@ FROM dummy_data
 WHERE
   ride_id = "123456"
 ORDER BY timestamp DESC
-LIMIT 5000
 ```
 
 Then click `Run` and `See Results`

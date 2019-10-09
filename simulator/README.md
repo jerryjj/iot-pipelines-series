@@ -10,6 +10,7 @@ This project requires node.js to be installed locally, optionally you can also r
 ### Verify credentials
 
 Make sure you have followed all the steps in the articles and you have your private key in the secrets folder.
+Especially from part1/README: `Create Service Account for local use`
 
 ### Install dependencies
 

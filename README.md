@@ -2,6 +2,10 @@
 
 This repository is meant to be followed with the article series I wrote about different ways of creating Data pipelines in GCP.
 
+- [IoT Data Pipelines in GCP, multiple ways — Part 1](https://medium.com/@jerry.jalava/iot-data-pipelines-in-gcp-multiple-ways-part-1-9eade945d218)
+- [IoT Data Pipelines in GCP, multiple ways — Part 2](https://medium.com/@jerry.jalava/iot-data-pipelines-in-gcp-multiple-ways-part-2-893269d56371)
+- [IoT Data Pipelines in GCP, multiple ways — Part 3](https://medium.com/@jerry.jalava/iot-data-pipelines-in-gcp-multiple-ways-part-3-11e54b35ed42)
+
 ## Preparations
 
 Before moving to any steps, take a look at the `.env` -file and input your preferred values.

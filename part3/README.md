@@ -1,6 +1,6 @@
 # Part 3
 
-This is the support folder for article xxx (link)
+This is the support folder for article [IoT Data Pipelines in GCP, multiple ways — Part 3](https://medium.com/@jerry.jalava/iot-data-pipelines-in-gcp-multiple-ways-part-3-11e54b35ed42)
 This part assumes that you have already done everything in the part 1 & 2.
 
 ## Setup

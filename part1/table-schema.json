@@ -1,0 +1,38 @@
+[
+  {
+    "name": "timestamp",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "processing_timestamp",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "event_name",
+    "type": "STRING"
+  },
+  {
+    "name": "device_id",
+    "type": "STRING"
+  },
+  {
+    "name": "ride_id", 
+    "type": "STRING"
+  },
+  {
+    "name": "battery_percentage",
+    "type": "INTEGER"
+  },
+  {
+    "name": "latitude",
+    "type": "FLOAT"
+  },
+  {
+    "name": "longitude",
+    "type": "FLOAT"
+  },
+  {
+    "name": "power_on_status",
+    "type": "BOOL"
+  }
+]

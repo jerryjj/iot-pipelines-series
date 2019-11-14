@@ -74,7 +74,7 @@ class Devices {
     const deviceIndex = getRandom(0, Object.keys(this._devices).length)
 
     const shouldExecuteTick = () => {
-      if (this.count >= 10) {
+      if (this.count > 10) {
         return (getRandom(1, 100) % 2)
       }
       return true
